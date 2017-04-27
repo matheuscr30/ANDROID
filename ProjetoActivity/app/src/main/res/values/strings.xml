@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">ProjetoActivity</string>
+    <string name="ir_para_activity_2">Ir para Activity 2</string>
+    <string name="activity_2">Activity 2</string>
+</resources>

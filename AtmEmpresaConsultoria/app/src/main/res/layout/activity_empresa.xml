@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/background_light"
+    android:padding="10dp"
+    tools:context="com.example.atmempresaconsultoria.EmpresaActivity">
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="11dp"
+        android:layout_marginTop="16dp"
+        app:srcCompat="@drawable/detalhe_empresa"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/imageView2"
+        android:layout_marginStart="17dp"
+        android:layout_marginTop="23dp"
+        android:layout_toEndOf="@+id/imageView2"
+        android:text="@string/sobre_a_empresa"
+        android:textSize="24dp" />
+
+    <ScrollView
+        android:layout_width="320dp"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/imageView2"
+        android:layout_below="@+id/imageView2">
+
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#d1d6d1"
+            android:padding="15dp"
+            android:text=" A Rossi é uma das principais incorporadoras e construtoras do País. Com 35 anos de existência, a empresa atua nacionalmente e ao longo de sua história já entregou mais de 97 mil unidades. A incorporadora está presente em diversos segmentos do mercado imobiliário, tem 68 empreendimentos em construção e possui em seu portfólio inúmeros sucessos de vendas de imóveis residenciais e comerciais, nos mais variados perfis de renda.A Rossi é uma das principais incorporadoras e construtoras do País. Com 35 anos de existência, a empresa atua nacionalmente e ao longo de sua história já entregou mais de 97 mil unidades. A incorporadora está presente em diversos segmentos do mercado imobiliário, tem 68 empreendimentos em construção e possui em seu portfólio inúmeros sucessos de vendas de imóveis residenciais e comerciais, nos mais variados perfis de renda.A Rossi é uma das principais incorporadoras e construtoras do País. Com 35 anos de existência, a empresa atua nacionalmente e ao longo de sua história já entregou mais de 97 mil unidades. A incorporadora está presente em diversos segmentos do mercado imobiliário, tem 68 empreendimentos em construção e possui em seu portfólio inúmeros sucessos de vendas de imóveis residenciais e comerciais, nos mais variados perfis de renda.A Rossi é uma das principais incorporadoras e construtoras do País. Com 35 anos de existência, a empresa atua nacionalmente e ao longo de sua história já entregou mais de 97 mil unidades. A incorporadora está presente em diversos segmentos do mercado imobiliário, tem 68 empreendimentos em construção e possui em seu portfólio inúmeros sucessos de vendas de imóveis residenciais e comerciais, nos mais variados perfis de renda.A Rossi é uma das principais incorporadoras e construtoras do País. Com 35 anos de existência, a empresa atua nacionalmente e ao longo de sua história já entregou mais de 97 mil unidades. A incorporadora está presente em diversos segmentos do mercado imobiliário, tem 68 empreendimentos em construção e possui em seu portfólio inúmeros sucessos de vendas de imóveis residenciais e comerciais, nos mais variados perfis de renda.A Rossi é uma das principais incorporadoras e construtoras do País. Com 35 anos de existência, a empresa atua nacionalmente e ao longo de sua história já entregou mais de 97 mil unidades. A incorporadora está presente em diversos segmentos do mercado imobiliário, tem 68 empreendimentos em construção e possui em seu portfólio inúmeros sucessos de vendas de imóveis residenciais e comerciais, nos mais variados perfis de renda." />
+    </ScrollView>
+
+
+</RelativeLayout>

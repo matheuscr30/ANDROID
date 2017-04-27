@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "353350314639",
+    "firebase_url": "https://autenticacao-usuario-35c77.firebaseio.com",
+    "project_id": "autenticacao-usuario-35c77",
+    "storage_bucket": "autenticacao-usuario-35c77.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:353350314639:android:be85a3e42bbf2f2a",
+        "android_client_info": {
+          "package_name": "com.cursoandroid.firebaseapp.autenticacaousuario"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "353350314639-eo9sei9p60l6q8pe00mt8ng0lp3508n4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA6oZ4c9pZoTrNivugo-7FJVXzC9Zn2w-s"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

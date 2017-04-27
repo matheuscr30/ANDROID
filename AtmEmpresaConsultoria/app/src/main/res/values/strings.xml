@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Atm Empresa Consultoria</string>
+    <string name="sobre_a_empresa">Sobre a Empresa</string>
+    <string name="big_text">A Rossi é uma das principais incorporadoras e construtoras do País. Com 35 anos de existência, a empresa atua nacionalmente e ao longo de sua história já entregou mais de 97 mil unidades. A incorporadora está presente em diversos segmentos do mercado imobiliário, tem 68 empreendimentos em construção e possui em seu portfólio inúmeros sucessos de vendas de imóveis residenciais e comerciais, nos mais variados perfis de renda.</string>
+    <string name="consultoria">Consultoria</string>
+    <string name="acompanhamentos_e_projetos">Acompanhamentos e Projetos</string>
+    <string name="processos">Processos</string>
+    <string name="servi_os">Serviços</string>
+    <string name="reticencias">...</string>
+</resources>

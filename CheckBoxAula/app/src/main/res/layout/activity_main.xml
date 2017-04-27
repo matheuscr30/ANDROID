@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.checkboxaula.MainActivity">
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="26dp"
+        android:text="Qual animal de estimação você tem?"
+        android:layout_alignParentTop="true"
+        android:textSize="20sp"
+        android:layout_centerHorizontal="true" />
+
+    <CheckBox
+        android:id="@+id/checkBoxCaoId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/textView2"
+        android:layout_below="@+id/textView2"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="21dp"
+        android:text="Cão" />
+
+    <CheckBox
+        android:id="@+id/checkBoxGatoId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/checkBoxCaoId"
+        android:layout_below="@+id/checkBoxCaoId"
+        android:text="Gato" />
+
+    <CheckBox
+        android:id="@+id/checkBoxPapagaioId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/checkBoxGatoId"
+        android:layout_below="@+id/checkBoxGatoId"
+        android:text="Papagaio" />
+
+    <Button
+        android:id="@+id/botaoId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="19dp"
+        android:text="Mostrar"
+        android:layout_below="@+id/checkBoxPapagaioId"
+        android:layout_toEndOf="@+id/checkBoxGatoId" />
+
+    <TextView
+        android:id="@+id/textoResultadoId"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/botaoId"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="36dp"
+        android:padding="10dp"
+        android:text="Mostrar..."
+        android:textSize="18sp" />
+
+</RelativeLayout>
