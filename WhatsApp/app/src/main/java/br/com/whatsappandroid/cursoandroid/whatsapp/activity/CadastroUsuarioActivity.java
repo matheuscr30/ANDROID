@@ -1,10 +1,12 @@
 package br.com.whatsappandroid.cursoandroid.whatsapp.activity;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Base64;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -23,6 +25,7 @@ import com.google.firebase.auth.FirebaseUser;
 
 import br.com.whatsappandroid.cursoandroid.whatsapp.R;
 import br.com.whatsappandroid.cursoandroid.whatsapp.config.ConfiguracaoFirebase;
+import br.com.whatsappandroid.cursoandroid.whatsapp.helper.Base64Custom;
 import br.com.whatsappandroid.cursoandroid.whatsapp.model.Usuario;
 
 public class CadastroUsuarioActivity extends AppCompatActivity {
@@ -70,12 +73,11 @@ public class CadastroUsuarioActivity extends AppCompatActivity {
                 if (task.isSuccessful()) {
                     Toast.makeText(CadastroUsuarioActivity.this, "Usuário Cadastrado com Sucesso", Toast.LENGTH_LONG).show();
 
-                    FirebaseUser usuarioFirebase = task.getResult().getUser();
-                    usuario.setId(usuarioFirebase.getUid()); //Pega id do usuario no firebase
+                    String identificadorUsuario = Base64Custom.codificarBase64(usuario.getEmail());
+                    usuario.setId(identificadorUsuario); //Pega id do usuario no firebase
                     usuario.salvar();
-                    firebaseAuth.signOut();
-                    finish();
 
+                    abrirLoginUsuario();
                 } else {
 
                     String erroExcecao = "";
@@ -97,5 +99,11 @@ public class CadastroUsuarioActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    public void abrirLoginUsuario(){
+        Intent intent = new Intent(CadastroUsuarioActivity.this, MainActivity.class);
+        startActivity(intent);
+        finish();
     }
 }
