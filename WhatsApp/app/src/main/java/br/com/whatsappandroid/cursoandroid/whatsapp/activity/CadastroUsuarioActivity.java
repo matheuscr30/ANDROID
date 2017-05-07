@@ -26,6 +26,7 @@ import com.google.firebase.auth.FirebaseUser;
 import br.com.whatsappandroid.cursoandroid.whatsapp.R;
 import br.com.whatsappandroid.cursoandroid.whatsapp.config.ConfiguracaoFirebase;
 import br.com.whatsappandroid.cursoandroid.whatsapp.helper.Base64Custom;
+import br.com.whatsappandroid.cursoandroid.whatsapp.helper.Preferencias;
 import br.com.whatsappandroid.cursoandroid.whatsapp.model.Usuario;
 
 public class CadastroUsuarioActivity extends AppCompatActivity {
@@ -76,6 +77,9 @@ public class CadastroUsuarioActivity extends AppCompatActivity {
                     String identificadorUsuario = Base64Custom.codificarBase64(usuario.getEmail());
                     usuario.setId(identificadorUsuario); //Pega id do usuario no firebase
                     usuario.salvar();
+
+                    Preferencias preferencias = new Preferencias(CadastroUsuarioActivity.this);
+                    preferencias.salvarDados(identificadorUsuario);
 
                     abrirLoginUsuario();
                 } else {
