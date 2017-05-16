@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
+    tools:context="com.example.beerapp.activity.LoginActivity">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="275dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/editTextLoginEmail"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="71dp"
+        app:srcCompat="@drawable/instagram_logo_old" />
+
+    <EditText
+        android:id="@+id/editTextLoginEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/imageView"
+        android:layout_alignParentTop="true"
+        android:layout_alignStart="@+id/imageView"
+        android:layout_marginTop="205dp"
+        android:ems="10"
+        android:hint="Email"
+        android:inputType="textEmailAddress" />
+
+    <EditText
+        android:id="@+id/editTextLoginSenha"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/editTextLoginEmail"
+        android:layout_alignStart="@+id/botao_ja_uso"
+        android:layout_below="@+id/editTextLoginEmail"
+        android:layout_marginTop="12dp"
+        android:ems="10"
+        android:hint="Senha"
+        android:inputType="textPassword" />
+
+    <Button
+        android:id="@+id/botao_ja_uso"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/editTextLoginEmail"
+        android:layout_alignStart="@+id/editTextLoginEmail"
+        android:layout_below="@+id/editTextLoginSenha"
+        android:layout_marginTop="18dp"
+        android:background="@android:color/background_light"
+        android:text="Já Uso o App" />
+
+    <Button
+        android:id="@+id/botaoCadastrarLogin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/botao_ja_uso"
+        android:layout_alignStart="@+id/botao_ja_uso"
+        android:layout_below="@+id/botao_ja_uso"
+        android:layout_marginTop="18dp"
+        android:background="@android:color/background_light"
+        android:text="Cadastrar-se" />
+
+    <com.facebook.login.widget.LoginButton
+        android:id="@+id/botao_facebook"
+        android:layout_width="300dp"
+        android:layout_height="200dp"
+        android:layout_alignEnd="@+id/botaoCadastrarLogin"
+        android:layout_alignStart="@+id/botaoCadastrarLogin"
+        android:layout_below="@+id/botaoCadastrarLogin"
+        android:layout_marginTop="21dp"
+        android:padding="10dp"
+        android:paddingBottom="10dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingTop="10dp" />
+</RelativeLayout>

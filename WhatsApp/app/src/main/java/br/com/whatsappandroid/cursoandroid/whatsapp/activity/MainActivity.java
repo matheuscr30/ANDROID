@@ -170,7 +170,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void deslogarUsuario(){
-        firebaseAuth = ConfiguracaoFirebase.getFirebaseAuth();
+        ConfiguracaoFirebase.getFirebaseAuth();
         firebaseAuth.signOut();
         Intent intent = new Intent(MainActivity.this, LoginActivity.class);
         startActivity(intent);
