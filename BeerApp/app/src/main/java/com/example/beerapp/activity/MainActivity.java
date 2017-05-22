@@ -14,13 +14,18 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.EditText;
 import android.widget.SeekBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.beerapp.R;
 import com.example.beerapp.config.ConfiguracaoFirebase;
+import com.example.beerapp.helper.Base64Custom;
+import com.example.beerapp.model.Usuario;
 import com.facebook.login.LoginManager;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -30,6 +35,13 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MapStyleOptions;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import org.w3c.dom.ls.LSOutput;
 
 import java.nio.channels.SelectionKey;
 
@@ -39,14 +51,18 @@ public class MainActivity extends AppCompatActivity
     private GoogleMap mMap;
     private Float atualZoom;
     private Toolbar toolbar;
+    private Usuario usuario;
     private FirebaseAuth firebaseAuth;
+    private DatabaseReference databaseReference;
     private SeekBar barraAlcanceRaio;
+    private NavigationView navigationView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        navigationView = (NavigationView)findViewById(R.id.nav_view);
         barraAlcanceRaio = (SeekBar)findViewById(R.id.barraAlcanceRaio);
         toolbar = (Toolbar)findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -68,18 +84,56 @@ public class MainActivity extends AppCompatActivity
             }
         });
 
+        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(this);
+
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout2);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.setDrawerListener(toggle);
         toggle.syncState();
 
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
-        navigationView.setNavigationItemSelectedListener(this);
-
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+    }
+
+    private void configuraUsuarioNavigationDrawer(){
+        firebaseAuth = ConfiguracaoFirebase.getFirebaseAuth();
+        databaseReference = ConfiguracaoFirebase.getFirebase().child("usuarios");
+        String emailUsuario = firebaseAuth.getCurrentUser().getEmail();
+        String identificadorUsuario = Base64Custom.codificarBase64(emailUsuario);
+
+        databaseReference = databaseReference.child(identificadorUsuario);
+
+        databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                //dataSnapshot.getValue()
+                for(DataSnapshot dados : dataSnapshot.getChildren() ){
+                    Log.v("LALALA", "USUARIO " + usuario.getNome());
+                    usuario = dados.getValue(Usuario.class);
+                }
+
+
+                //Toast.makeText(MainActivity.this, usuario.toString(), Toast.LENGTH_LONG).show();
+                /*
+                View header = navigationView.getHeaderView(0);
+
+                TextView nomeUsuario = (TextView)header.findViewById(R.id.tNome);
+                TextView emailUsuario = (TextView)header.findViewById(R.id.tEmail);
+                Log.i("DEU merda", usuario.toString());
+
+                nomeUsuario.setText(usuario.getNome());
+                emailUsuario.setText(usuario.getEmail()); */
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                System.out.println("The read failed: " + databaseError.getCode());
+            }
+        });
     }
 
     @Override
