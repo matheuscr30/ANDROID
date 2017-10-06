@@ -4,12 +4,13 @@
     android:layout_height="match_parent"
     tools:context="br.com.whatsappandroid.cursoandroid.whatsapp.fragment.ConversasFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <ListView
+        android:id="@+id/lv_conversas"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="center"
-        android:text="Conversas"
-        android:textColor="@color/common_google_signin_btn_text_dark_focused" />
+        android:layout_gravity="center_horizontal|top"
+        android:divider="#CCCCCC"
+        android:dividerHeight="1dp"
+        android:padding="5dp" />
 
 </FrameLayout>

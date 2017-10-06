@@ -1,0 +1,7 @@
+#Thu Sep 07 19:33:29 BRT 2017
+base.0=/home/matheus/Documents/ANDROID/Parse-Projeto-1.13.0/ParseStarterProject/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_4b633e8a54c539105aff8e97b1e7700aeb7dcf24
+renamed.1=classes2.dex
+renamed.0=classes.dex
+file.1=/home/matheus/Documents/ANDROID/Parse-Projeto-1.13.0/ParseStarterProject/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_2e9fb1b8370a431b865cbbd0ca12e7aceb47cee6/classes.dex
+base.1=/home/matheus/Documents/ANDROID/Parse-Projeto-1.13.0/ParseStarterProject/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_2e9fb1b8370a431b865cbbd0ca12e7aceb47cee6
+file.0=/home/matheus/Documents/ANDROID/Parse-Projeto-1.13.0/ParseStarterProject/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_4b633e8a54c539105aff8e97b1e7700aeb7dcf24/classes.dex

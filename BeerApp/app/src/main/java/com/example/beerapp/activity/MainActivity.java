@@ -1,15 +1,25 @@
 package com.example.beerapp.activity;
 
+import android.Manifest;
+import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.content.res.Configuration;
+import android.location.Location;
+import android.location.LocationManager;
 import android.os.Build;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
+import android.support.design.widget.Snackbar;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.transition.Fade;
+import android.transition.Slide;
+import android.transition.TransitionInflater;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -17,14 +27,14 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.beerapp.R;
 import com.example.beerapp.config.ConfiguracaoFirebase;
 import com.example.beerapp.helper.Base64Custom;
+import com.example.beerapp.helper.DownloadImageTask;
 import com.example.beerapp.model.Usuario;
 import com.facebook.login.LoginManager;
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -38,12 +48,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-
-import org.w3c.dom.ls.LSOutput;
-
-import java.nio.channels.SelectionKey;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, OnMapReadyCallback {
@@ -56,16 +61,20 @@ public class MainActivity extends AppCompatActivity
     private DatabaseReference databaseReference;
     private SeekBar barraAlcanceRaio;
     private NavigationView navigationView;
+    private LocationManager locationManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        locationManager = (LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
         navigationView = (NavigationView)findViewById(R.id.nav_view);
         barraAlcanceRaio = (SeekBar)findViewById(R.id.barraAlcanceRaio);
         toolbar = (Toolbar)findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        configuraUsuarioNavigationDrawer();
 
         barraAlcanceRaio.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
@@ -100,33 +109,33 @@ public class MainActivity extends AppCompatActivity
 
     private void configuraUsuarioNavigationDrawer(){
         firebaseAuth = ConfiguracaoFirebase.getFirebaseAuth();
-        databaseReference = ConfiguracaoFirebase.getFirebase().child("usuarios");
         String emailUsuario = firebaseAuth.getCurrentUser().getEmail();
         String identificadorUsuario = Base64Custom.codificarBase64(emailUsuario);
 
-        databaseReference = databaseReference.child(identificadorUsuario);
+        barraAlcanceRaio.setProgress(4);
+
+        databaseReference = ConfiguracaoFirebase.getFirebase()
+                .child("usuarios")
+                .child(identificadorUsuario);
 
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
 
-                //dataSnapshot.getValue()
-                for(DataSnapshot dados : dataSnapshot.getChildren() ){
-                    Log.v("LALALA", "USUARIO " + usuario.getNome());
-                    usuario = dados.getValue(Usuario.class);
-                }
+                usuario = dataSnapshot.getValue(Usuario.class);
 
-
-                //Toast.makeText(MainActivity.this, usuario.toString(), Toast.LENGTH_LONG).show();
-                /*
                 View header = navigationView.getHeaderView(0);
 
                 TextView nomeUsuario = (TextView)header.findViewById(R.id.tNome);
                 TextView emailUsuario = (TextView)header.findViewById(R.id.tEmail);
-                Log.i("DEU merda", usuario.toString());
+                ImageView imagemPerfil = (ImageView)header.findViewById(R.id.img);
+
+                String urlFace = "https://graph.facebook.com/" + usuario.getFb_id() + "/picture?type=large";
+
+                new DownloadImageTask(imagemPerfil).execute(urlFace);
 
                 nomeUsuario.setText(usuario.getNome());
-                emailUsuario.setText(usuario.getEmail()); */
+                emailUsuario.setText(usuario.getEmail());
             }
 
             @Override
@@ -162,7 +171,17 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-        return false;
+        switch (item.getItemId()){
+            case R.id.nav_item_add_estabelecimento:
+                abrirCadastroEstabelecimento();
+                break;
+        }
+        return true;
+    }
+
+    public void abrirCadastroEstabelecimento(){
+        Intent intent = new Intent(MainActivity.this, CadastroEstabelecimentoActivity.class);
+        startActivity(intent);
     }
 
     public void MakeBarsInvisible() {
@@ -191,7 +210,8 @@ public class MainActivity extends AppCompatActivity
         // Add a marker in Sydney and move the camera
         LatLng casa = new LatLng(-18.932088, -48.224179);
         mMap.addMarker(new MarkerOptions().position(casa).title("My House"));
-        atualZoom = Float.parseFloat("19.00");
+
+        atualZoom = Float.parseFloat("18.00");
         mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(casa, atualZoom));
         googleMap.setMapStyle(MapStyleOptions.loadRawResourceStyle(this, R.raw.style_json));
     }
@@ -201,5 +221,40 @@ public class MainActivity extends AppCompatActivity
 
         atualizaZoom(0);
         super.onConfigurationChanged(newConfig);
+    }
+
+    public void fabActionLocalizacao(View v){
+
+        ActivityCompat.requestPermissions(this,new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 1);
+
+        try{
+            Location location = locationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
+            if(location != null) {
+                LatLng act = new LatLng(location.getLatitude(), location.getLongitude());
+                mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(act, atualZoom));
+            } else {
+                Snackbar.make(v, "Serviço de Localização Desligado", Snackbar.LENGTH_SHORT).show();
+            }
+        } catch (SecurityException e){
+            e.printStackTrace();
+        }
+    }
+
+    public void onRequestPermissionsResult(int requestCode, String permissions[], int[] grantResults) {
+        switch (requestCode) {
+            case 1: {
+                // If request is cancelled, the result arrays are empty.
+                if (grantResults.length > 0
+                        && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+
+                } else {
+                    // permission denied, boo! Disable the
+                    // functionality that depends on this permission.
+                }
+                return;
+            }
+            // other 'case' lines to check for other
+            // permissions this app might request
+        }
     }
 }

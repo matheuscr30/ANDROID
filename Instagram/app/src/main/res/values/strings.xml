@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Instagram</string>
+    <string name="parse_server_url">http://instagram2285.herokuapp.com/parse/</string>
+    <string name="parse_app_id">matheus2230</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_feed_usuarios">FeedUsuariosActivity</string>
+</resources>

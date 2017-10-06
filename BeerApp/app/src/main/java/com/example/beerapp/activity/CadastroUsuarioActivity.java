@@ -65,6 +65,7 @@ public class CadastroUsuarioActivity extends AppCompatActivity {
                     usuario.setIdade(Integer.parseInt(editTextCadastroIdade.getText().toString()));
                     usuario.setEmail(editTextCadastroEmail.getText().toString());
                     usuario.setSenha(editTextCadastroSenha.getText().toString());
+                    usuario.setDescricao(" ");
 
                     if(editTextCadastroDescricao.getText().toString() != ""){
                         usuario.setDescricao(editTextCadastroDescricao.getText().toString());

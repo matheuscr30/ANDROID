@@ -1,0 +1,119 @@
+-- Merging decision tree log ---
+manifest
+ADDED from /home/matheus/Documents/ANDROID/Parse-Projeto-1.13.0/ParseStarterProject/src/main/AndroidManifest.xml:9:1-40:12
+	package
+		ADDED from /home/matheus/Documents/ANDROID/Parse-Projeto-1.13.0/ParseStarterProject/src/main/AndroidManifest.xml:10:5-32
+		INJECTED from /home/matheus/Documents/ANDROID/Parse-Projeto-1.13.0/ParseStarterProject/src/main/AndroidManifest.xml
+		INJECTED from /home/matheus/Documents/ANDROID/Parse-Projeto-1.13.0/ParseStarterProject/src/main/AndroidManifest.xml
+	android:versionName
+		INJECTED from /home/matheus/Documents/ANDROID/Parse-Projeto-1.13.0/ParseStarterProject/src/main/AndroidManifest.xml
+		INJECTED from /home/matheus/Documents/ANDROID/Parse-Projeto-1.13.0/ParseStarterProject/src/main/AndroidManifest.xml
+	xmlns:android
+		ADDED from /home/matheus/Documents/ANDROID/Parse-Projeto-1.13.0/ParseStarterProject/src/main/AndroidManifest.xml:9:11-69
+	android:versionCode
+		INJECTED from /home/matheus/Documents/ANDROID/Parse-Projeto-1.13.0/ParseStarterProject/src/main/AndroidManifest.xml
+		INJECTED from /home/matheus/Documents/ANDROID/Parse-Projeto-1.13.0/ParseStarterProject/src/main/AndroidManifest.xml
+uses-permission#android.permission.INTERNET
+ADDED from /home/matheus/Documents/ANDROID/Parse-Projeto-1.13.0/ParseStarterProject/src/main/AndroidManifest.xml:12:5-67
+	android:name
+		ADDED from /home/matheus/Documents/ANDROID/Parse-Projeto-1.13.0/ParseStarterProject/src/main/AndroidManifest.xml:12:22-64
+uses-permission#android.permission.ACCESS_NETWORK_STATE
+ADDED from /home/matheus/Documents/ANDROID/Parse-Projeto-1.13.0/ParseStarterProject/src/main/AndroidManifest.xml:13:5-79
+	android:name
+		ADDED from /home/matheus/Documents/ANDROID/Parse-Projeto-1.13.0/ParseStarterProject/src/main/AndroidManifest.xml:13:22-76
+application
+ADDED from /home/matheus/Documents/ANDROID/Parse-Projeto-1.13.0/ParseStarterProject/src/main/AndroidManifest.xml:15:5-38:19
+MERGED from [com.android.support:design:25.3.1] /home/matheus/.android/build-cache/39237b1351612d06e446079d387718cd588f47f0/output/AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:appcompat-v7:25.3.1] /home/matheus/.android/build-cache/6e62ec66a614726634a5b0b87117bc6c83cc1e65/output/AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:animated-vector-drawable:25.3.1] /home/matheus/.android/build-cache/7b3a07bcf7d9a5e26f0ac9037b088e0a37f5f38c/output/AndroidManifest.xml:26:5-20
+MERGED from [com.android.support:support-vector-drawable:25.3.1] /home/matheus/.android/build-cache/125cee272e14769342480e8288d2fbfd3535a7b6/output/AndroidManifest.xml:26:5-20
+MERGED from [com.android.support:transition:25.3.1] /home/matheus/.android/build-cache/0eb27603a80e1deac08eb36e3445b5733535b1e3/output/AndroidManifest.xml:26:5-20
+MERGED from [com.android.support:support-v4:25.3.1] /home/matheus/.android/build-cache/d736a014f233a4fdbe7c0fdcab43a405a1887da9/output/AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-fragment:25.3.1] /home/matheus/.android/build-cache/2c4d4e58425b9d20a3cebac59758b46812f66b2a/output/AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-media-compat:25.3.1] /home/matheus/.android/build-cache/f70b1f96cc4e3324df0a185e23b288f887539f58/output/AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-core-ui:25.3.1] /home/matheus/.android/build-cache/6e2e5042c5d519b060b1c6258274da19ea112285/output/AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-core-utils:25.3.1] /home/matheus/.android/build-cache/b9dab49f82f0582eb69a1dfc9fa305f0cdcae46d/output/AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-compat:25.3.1] /home/matheus/.android/build-cache/e592ad77cb805e6063a6be42eb44e678f5fd9adf/output/AndroidManifest.xml:29:5-20
+MERGED from [com.android.support.constraint:constraint-layout:1.0.2] /home/matheus/.android/build-cache/e128d1c94faa1fb950de74bfc492b4eb5d306e5f/output/AndroidManifest.xml:9:5-20
+	android:label
+		ADDED from /home/matheus/Documents/ANDROID/Parse-Projeto-1.13.0/ParseStarterProject/src/main/AndroidManifest.xml:19:9-41
+	android:allowBackup
+		ADDED from /home/matheus/Documents/ANDROID/Parse-Projeto-1.13.0/ParseStarterProject/src/main/AndroidManifest.xml:17:9-35
+	android:icon
+		ADDED from /home/matheus/Documents/ANDROID/Parse-Projeto-1.13.0/ParseStarterProject/src/main/AndroidManifest.xml:18:9-43
+	android:theme
+		ADDED from /home/matheus/Documents/ANDROID/Parse-Projeto-1.13.0/ParseStarterProject/src/main/AndroidManifest.xml:20:9-40
+	android:name
+		ADDED from /home/matheus/Documents/ANDROID/Parse-Projeto-1.13.0/ParseStarterProject/src/main/AndroidManifest.xml:16:9-66
+meta-data#com.parse.APPLICATION_ID
+ADDED from /home/matheus/Documents/ANDROID/Parse-Projeto-1.13.0/ParseStarterProject/src/main/AndroidManifest.xml:21:9-23:52
+	android:value
+		ADDED from /home/matheus/Documents/ANDROID/Parse-Projeto-1.13.0/ParseStarterProject/src/main/AndroidManifest.xml:23:13-49
+	android:name
+		ADDED from /home/matheus/Documents/ANDROID/Parse-Projeto-1.13.0/ParseStarterProject/src/main/AndroidManifest.xml:22:13-52
+meta-data#com.parse.CLIENT_KEY
+ADDED from /home/matheus/Documents/ANDROID/Parse-Projeto-1.13.0/ParseStarterProject/src/main/AndroidManifest.xml:24:9-26:56
+	android:value
+		ADDED from /home/matheus/Documents/ANDROID/Parse-Projeto-1.13.0/ParseStarterProject/src/main/AndroidManifest.xml:26:13-53
+	android:name
+		ADDED from /home/matheus/Documents/ANDROID/Parse-Projeto-1.13.0/ParseStarterProject/src/main/AndroidManifest.xml:25:13-48
+activity#com.parse.com.instagram.activity.LoginActivity
+ADDED from /home/matheus/Documents/ANDROID/Parse-Projeto-1.13.0/ParseStarterProject/src/main/AndroidManifest.xml:28:9-36:20
+	android:label
+		ADDED from /home/matheus/Documents/ANDROID/Parse-Projeto-1.13.0/ParseStarterProject/src/main/AndroidManifest.xml:30:13-45
+	android:name
+		ADDED from /home/matheus/Documents/ANDROID/Parse-Projeto-1.13.0/ParseStarterProject/src/main/AndroidManifest.xml:29:13-74
+intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
+ADDED from /home/matheus/Documents/ANDROID/Parse-Projeto-1.13.0/ParseStarterProject/src/main/AndroidManifest.xml:31:13-35:29
+action#android.intent.action.MAIN
+ADDED from /home/matheus/Documents/ANDROID/Parse-Projeto-1.13.0/ParseStarterProject/src/main/AndroidManifest.xml:32:17-69
+	android:name
+		ADDED from /home/matheus/Documents/ANDROID/Parse-Projeto-1.13.0/ParseStarterProject/src/main/AndroidManifest.xml:32:25-66
+category#android.intent.category.LAUNCHER
+ADDED from /home/matheus/Documents/ANDROID/Parse-Projeto-1.13.0/ParseStarterProject/src/main/AndroidManifest.xml:34:17-77
+	android:name
+		ADDED from /home/matheus/Documents/ANDROID/Parse-Projeto-1.13.0/ParseStarterProject/src/main/AndroidManifest.xml:34:27-74
+activity#com.parse.com.instagram.activity.MainActivity
+ADDED from /home/matheus/Documents/ANDROID/Parse-Projeto-1.13.0/ParseStarterProject/src/main/AndroidManifest.xml:37:9-82
+	android:name
+		ADDED from /home/matheus/Documents/ANDROID/Parse-Projeto-1.13.0/ParseStarterProject/src/main/AndroidManifest.xml:37:19-79
+uses-sdk
+INJECTED from /home/matheus/Documents/ANDROID/Parse-Projeto-1.13.0/ParseStarterProject/src/main/AndroidManifest.xml reason: use-sdk injection requested
+MERGED from [com.android.support:design:25.3.1] /home/matheus/.android/build-cache/39237b1351612d06e446079d387718cd588f47f0/output/AndroidManifest.xml:21:5-23:62
+MERGED from [com.android.support:appcompat-v7:25.3.1] /home/matheus/.android/build-cache/6e62ec66a614726634a5b0b87117bc6c83cc1e65/output/AndroidManifest.xml:21:5-23:78
+MERGED from [com.android.support:animated-vector-drawable:25.3.1] /home/matheus/.android/build-cache/7b3a07bcf7d9a5e26f0ac9037b088e0a37f5f38c/output/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:25.3.1] /home/matheus/.android/build-cache/125cee272e14769342480e8288d2fbfd3535a7b6/output/AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:recyclerview-v7:25.3.1] /home/matheus/.android/build-cache/fa7d266ec48cd99969bd96563516133120ef8804/output/AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:transition:25.3.1] /home/matheus/.android/build-cache/0eb27603a80e1deac08eb36e3445b5733535b1e3/output/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-v4:25.3.1] /home/matheus/.android/build-cache/d736a014f233a4fdbe7c0fdcab43a405a1887da9/output/AndroidManifest.xml:21:5-23:54
+MERGED from [com.android.support:support-fragment:25.3.1] /home/matheus/.android/build-cache/2c4d4e58425b9d20a3cebac59758b46812f66b2a/output/AndroidManifest.xml:21:5-23:60
+MERGED from [com.android.support:support-media-compat:25.3.1] /home/matheus/.android/build-cache/f70b1f96cc4e3324df0a185e23b288f887539f58/output/AndroidManifest.xml:21:5-23:63
+MERGED from [com.android.support:support-core-ui:25.3.1] /home/matheus/.android/build-cache/6e2e5042c5d519b060b1c6258274da19ea112285/output/AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-core-utils:25.3.1] /home/matheus/.android/build-cache/b9dab49f82f0582eb69a1dfc9fa305f0cdcae46d/output/AndroidManifest.xml:21:5-23:61
+MERGED from [com.android.support:support-compat:25.3.1] /home/matheus/.android/build-cache/e592ad77cb805e6063a6be42eb44e678f5fd9adf/output/AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support.constraint:constraint-layout:1.0.2] /home/matheus/.android/build-cache/e128d1c94faa1fb950de74bfc492b4eb5d306e5f/output/AndroidManifest.xml:5:5-7:41
+	tools:overrideLibrary
+		ADDED from [com.android.support:design:25.3.1] /home/matheus/.android/build-cache/39237b1351612d06e446079d387718cd588f47f0/output/AndroidManifest.xml:23:9-59
+	android:targetSdkVersion
+		INJECTED from /home/matheus/Documents/ANDROID/Parse-Projeto-1.13.0/ParseStarterProject/src/main/AndroidManifest.xml
+		INJECTED from /home/matheus/Documents/ANDROID/Parse-Projeto-1.13.0/ParseStarterProject/src/main/AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from /home/matheus/Documents/ANDROID/Parse-Projeto-1.13.0/ParseStarterProject/src/main/AndroidManifest.xml
+		INJECTED from /home/matheus/Documents/ANDROID/Parse-Projeto-1.13.0/ParseStarterProject/src/main/AndroidManifest.xml
+meta-data#android.support.VERSION
+ADDED from [com.android.support:design:25.3.1] /home/matheus/.android/build-cache/39237b1351612d06e446079d387718cd588f47f0/output/AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:appcompat-v7:25.3.1] /home/matheus/.android/build-cache/6e62ec66a614726634a5b0b87117bc6c83cc1e65/output/AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:animated-vector-drawable:25.3.1] /home/matheus/.android/build-cache/7b3a07bcf7d9a5e26f0ac9037b088e0a37f5f38c/output/AndroidManifest.xml:22:5-24:34
+MERGED from [com.android.support:support-vector-drawable:25.3.1] /home/matheus/.android/build-cache/125cee272e14769342480e8288d2fbfd3535a7b6/output/AndroidManifest.xml:22:5-24:34
+MERGED from [com.android.support:recyclerview-v7:25.3.1] /home/matheus/.android/build-cache/fa7d266ec48cd99969bd96563516133120ef8804/output/AndroidManifest.xml:22:5-24:34
+MERGED from [com.android.support:transition:25.3.1] /home/matheus/.android/build-cache/0eb27603a80e1deac08eb36e3445b5733535b1e3/output/AndroidManifest.xml:22:5-24:34
+MERGED from [com.android.support:support-v4:25.3.1] /home/matheus/.android/build-cache/d736a014f233a4fdbe7c0fdcab43a405a1887da9/output/AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:support-fragment:25.3.1] /home/matheus/.android/build-cache/2c4d4e58425b9d20a3cebac59758b46812f66b2a/output/AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:support-media-compat:25.3.1] /home/matheus/.android/build-cache/f70b1f96cc4e3324df0a185e23b288f887539f58/output/AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:support-core-ui:25.3.1] /home/matheus/.android/build-cache/6e2e5042c5d519b060b1c6258274da19ea112285/output/AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:support-core-utils:25.3.1] /home/matheus/.android/build-cache/b9dab49f82f0582eb69a1dfc9fa305f0cdcae46d/output/AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:support-compat:25.3.1] /home/matheus/.android/build-cache/e592ad77cb805e6063a6be42eb44e678f5fd9adf/output/AndroidManifest.xml:25:5-27:34
+	android:value
+		ADDED from [com.android.support:design:25.3.1] /home/matheus/.android/build-cache/39237b1351612d06e446079d387718cd588f47f0/output/AndroidManifest.xml:27:9-31
+	android:name
+		ADDED from [com.android.support:design:25.3.1] /home/matheus/.android/build-cache/39237b1351612d06e446079d387718cd588f47f0/output/AndroidManifest.xml:26:9-47

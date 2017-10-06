@@ -1,5 +1,6 @@
 package com.example.beerapp.activity;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
@@ -8,6 +9,9 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.transition.Fade;
+import android.transition.Slide;
+import android.transition.TransitionInflater;
 import android.util.Base64;
 import android.util.Log;
 import android.view.View;
@@ -48,6 +52,7 @@ public class LoginActivity extends AppCompatActivity {
     private Button botaoCadastrarLogin;
     private Button botaojaUsoApp;
     private LoginButton botaoFacebook;
+    private ProgressDialog progressDialog;
     private EditText textEmail;
     private EditText textSenha;
     private Usuario usuario;
@@ -57,6 +62,7 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        configuraProgressDialog();
 
         botaoCadastrarLogin = (Button)findViewById(R.id.botaoCadastrarLogin);
         botaojaUsoApp = (Button)findViewById(R.id.botao_ja_uso);
@@ -64,6 +70,7 @@ public class LoginActivity extends AppCompatActivity {
         textEmail = (EditText)findViewById(R.id.editTextLoginEmail);
         textSenha = (EditText)findViewById(R.id.editTextLoginSenha);
         verificarUsuarioLogado();
+
 
         botaoCadastrarLogin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -92,9 +99,11 @@ public class LoginActivity extends AppCompatActivity {
         botaoFacebook.registerCallback(mCallbackManager, new FacebookCallback<LoginResult>() {
             @Override
             public void onSuccess(LoginResult loginResult) {
+                progressDialog.show();
                 handleFacebookAccessToken(loginResult.getAccessToken());
                 verificarUsuarioLogado();
                 getDataFacebook();
+                //progressDialog.dismiss();
             }
 
             @Override
@@ -125,11 +134,15 @@ public class LoginActivity extends AppCompatActivity {
                             String generoUsuario = object.has("gender") ?
                                     (object.getString("gender").equals("male") ? "Masculino" : "Feminino") : "";
                             String emailUsuario = object.has("email") ? object.getString("email") : "";
+                            String facebookId = object.getString("id");
                             String identificadorUsuario = Base64Custom.codificarBase64(emailUsuario);
 
+                            System.out.println(facebookId);
 
                             usuario =  new Usuario();
                             usuario.setId(identificadorUsuario);
+                            usuario.setFb_id(facebookId);
+                            usuario.setIdade(0);
                             usuario.setNome(nomeUsuario);
                             usuario.setDescricao(descricaoUsuario);
                             usuario.setEmail(emailUsuario);
@@ -143,7 +156,7 @@ public class LoginActivity extends AppCompatActivity {
                     }
                 });
         Bundle parameters = new Bundle();
-        parameters.putString("fields", "about,name,email,gender");
+        parameters.putString("fields", "id, about,name,email,gender");
         request.setParameters(parameters);
         request.executeAsync();
 
@@ -161,7 +174,7 @@ public class LoginActivity extends AppCompatActivity {
                             Toast.makeText(LoginActivity.this, "Erro ao fazer login!", Toast.LENGTH_SHORT).show();
                         } else{
                             Toast.makeText(LoginActivity.this, "Sucesso ao fazer login!", Toast.LENGTH_LONG).show();
-                            verificarUsuarioLogado();
+                            abrirTelaPrincipal();
                         }
                     }
                 });
@@ -215,6 +228,13 @@ public class LoginActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         mCallbackManager.onActivityResult(requestCode, resultCode, data);
+    }
+
+    private void configuraProgressDialog(){
+        progressDialog = new ProgressDialog(LoginActivity.this);
+        progressDialog.setTitle("Beer App");
+        progressDialog.setMessage("Logando...");
+        progressDialog.setCancelable(false);
     }
 }
 

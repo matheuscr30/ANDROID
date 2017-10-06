@@ -50,16 +50,33 @@
     </RelativeLayout>
 
     <android.support.design.widget.FloatingActionButton
-        android:id="@+id/floatingActionButton"
-        android:layout_width="wrap_content"
+        android:id="@+id/floatingActionButtonMenu"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="top|right"
         android:layout_marginBottom="75dp"
-        android:layout_marginLeft="5dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         android:clickable="true"
         android:elevation="15dp"
+        app:fabSize="normal"
+        app:layout_anchor="@+id/relativeLayout3"
+        app:layout_anchorGravity="bottom|right"
+        app:srcCompat="@drawable/ic_speaker_notes_white_48dp" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/floatingActionButtonLocalizacao"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|right"
+        android:layout_marginBottom="140dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:clickable="true"
+        android:elevation="15dp"
+        android:onClick="fabActionLocalizacao"
         app:fabSize="mini"
         app:layout_anchor="@+id/relativeLayout3"
-        app:layout_anchorGravity="bottom|left"
-        app:srcCompat="@drawable/ic_speaker_notes_white_48dp" />
+        app:layout_anchorGravity="bottom|right"
+        app:srcCompat="@drawable/ic_location_searching_white_24dp" />
 </android.support.design.widget.CoordinatorLayout>

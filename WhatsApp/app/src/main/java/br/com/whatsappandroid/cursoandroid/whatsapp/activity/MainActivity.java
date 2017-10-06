@@ -10,6 +10,7 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -17,6 +18,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -141,7 +143,7 @@ public class MainActivity extends AppCompatActivity {
                                 contato.setNome( usuarioContato.getNome() );
 
                                 databaseReference.setValue( contato );
-                                Snackbar.make(viewPager, "Contato Adicionaado com Sucesso", Snackbar.LENGTH_LONG).show();
+                                Snackbar.make(viewPager, "Contato Adicionado com Sucesso", Snackbar.LENGTH_LONG).show();
 
                             } else {
                                 Snackbar.make(viewPager, "Usuário não possui Cadastro", Snackbar.LENGTH_LONG).show();
@@ -170,7 +172,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void deslogarUsuario(){
-        ConfiguracaoFirebase.getFirebaseAuth();
+        firebaseAuth = ConfiguracaoFirebase.getFirebaseAuth();
         firebaseAuth.signOut();
         Intent intent = new Intent(MainActivity.this, LoginActivity.class);
         startActivity(intent);

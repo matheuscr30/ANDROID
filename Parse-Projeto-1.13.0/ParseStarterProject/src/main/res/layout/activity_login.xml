@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/fundo_degrade"
+    tools:context="com.parse.starter.activity.LoginActivity">
+
+    <RelativeLayout
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="160dp"
+            android:layout_height="55dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="62dp"
+            app:srcCompat="@drawable/logo" />
+
+        <EditText
+            android:id="@+id/editText"
+            android:background="@drawable/fundo_caixa_texto"
+            android:padding="16dp"
+            android:textColorHint="@android:color/white"
+            android:textColor="@android:color/white"
+            android:hint="Digite seu Usuário"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/imageView"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="55dp"
+            android:ems="10"
+            android:inputType="textPersonName" />
+
+        <EditText
+            android:id="@+id/editText2"
+            android:background="@drawable/fundo_caixa_texto"
+            android:padding="16dp"
+            android:textColorHint="@android:color/white"
+            android:textColor="@android:color/white"
+            android:hint="Digite sua Senha"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:ems="10"
+            android:inputType="textPassword"
+            android:layout_below="@+id/editText"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
+
+        <Button
+            android:id="@+id/button"
+            android:background="@drawable/fundo_botao"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="17dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:text="LOGAR"
+            android:textColor="@android:color/white"
+            android:layout_below="@+id/editText2"
+            android:layout_centerHorizontal="true" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_marginTop="4dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/white"
+            android:layout_below="@+id/button"
+            android:layout_centerHorizontal="true"
+            android:text="Não tem uma conta? Crie uma!" />
+    </RelativeLayout>
+</RelativeLayout>

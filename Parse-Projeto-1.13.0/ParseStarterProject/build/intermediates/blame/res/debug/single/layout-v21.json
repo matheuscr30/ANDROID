@@ -1,0 +1,18 @@
+[
+    {
+        "merged": "/home/matheus/Documents/ANDROID/Parse-Projeto-1.13.0/ParseStarterProject/build/intermediates/res/merged/debug/layout-v21/notification_template_icon_group.xml",
+        "source": "/home/matheus/.android/build-cache/6e62ec66a614726634a5b0b87117bc6c83cc1e65/output/res/layout-v21/notification_template_icon_group.xml"
+    },
+    {
+        "merged": "/home/matheus/Documents/ANDROID/Parse-Projeto-1.13.0/ParseStarterProject/build/intermediates/res/merged/debug/layout-v21/notification_action_tombstone.xml",
+        "source": "/home/matheus/.android/build-cache/6e62ec66a614726634a5b0b87117bc6c83cc1e65/output/res/layout-v21/notification_action_tombstone.xml"
+    },
+    {
+        "merged": "/home/matheus/Documents/ANDROID/Parse-Projeto-1.13.0/ParseStarterProject/build/intermediates/res/merged/debug/layout-v21/notification_template_custom_big.xml",
+        "source": "/home/matheus/.android/build-cache/6e62ec66a614726634a5b0b87117bc6c83cc1e65/output/res/layout-v21/notification_template_custom_big.xml"
+    },
+    {
+        "merged": "/home/matheus/Documents/ANDROID/Parse-Projeto-1.13.0/ParseStarterProject/build/intermediates/res/merged/debug/layout-v21/notification_action.xml",
+        "source": "/home/matheus/.android/build-cache/6e62ec66a614726634a5b0b87117bc6c83cc1e65/output/res/layout-v21/notification_action.xml"
+    }
+]

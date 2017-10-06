@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item android:id="@+id/action_settings"
+        android:title="Configurações"
+        android:orderInCategory="100"
+        app:showAsAction="never"/>
+
+    <item android:id="@+id/action_sair"
+        android:title="Sair"
+        android:orderInCategory="200"
+        app:showAsAction="never"/>
+
+    <item android:id="@+id/action_compartilhar"
+        android:title="Compartilhar"
+        android:icon="@drawable/ic_camera_enhance"
+        android:orderInCategory="300"
+        app:showAsAction="ifRoom"/>
+</menu>

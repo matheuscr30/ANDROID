@@ -1,0 +1,4 @@
+#Thu Sep 07 19:33:28 BRT 2017
+base.0=/home/matheus/Documents/ANDROID/Parse-Projeto-1.13.0/ParseStarterProject/build/intermediates/transforms/dex/debug/folders/1000/5/slice_7
+renamed.0=classes.dex
+file.0=/home/matheus/Documents/ANDROID/Parse-Projeto-1.13.0/ParseStarterProject/build/intermediates/transforms/dex/debug/folders/1000/5/slice_7/classes.dex

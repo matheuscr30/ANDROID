@@ -11,6 +11,7 @@ import com.google.firebase.database.Exclude;
 public class Usuario {
 
     private String id;
+    private String fb_id;
     private String nome;
     private String email;
     private String senha;
@@ -19,7 +20,6 @@ public class Usuario {
     private int idade;
 
     public Usuario(){
-
     }
 
     public void salvar(){
@@ -76,4 +76,12 @@ public class Usuario {
     public String getGenero() { return genero; }
 
     public void setGenero(String genero) { this.genero = genero; }
+
+    public String getFb_id() {
+        return fb_id;
+    }
+
+    public void setFb_id(String fb_id) {
+        this.fb_id = fb_id;
+    }
 }
