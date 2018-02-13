@@ -30,7 +30,6 @@ public class MainActivity extends AppCompatActivity implements OnDSListener {
 
     private DroidSpeech droidSpeech;
     private TextView finalSpeechResult;
-    private ImageView start, stop;
 
     // MARK: Activity Methods
 
@@ -40,7 +39,10 @@ public class MainActivity extends AppCompatActivity implements OnDSListener {
 
         // Setting the layout;[.
         setContentView(R.layout.activity_main);
+        config();
+    }
 
+    public void config(){
         // Initializing the droid speech and setting the listener
         droidSpeech = new DroidSpeech(this, getFragmentManager());
         droidSpeech.setOnDroidSpeechListener(this);
@@ -49,8 +51,6 @@ public class MainActivity extends AppCompatActivity implements OnDSListener {
         droidSpeech.setRecognitionProgressMsgColor(Color.WHITE);
         droidSpeech.setOneStepVerifyConfirmTextColor(Color.WHITE);
         droidSpeech.setOneStepVerifyRetryTextColor(Color.WHITE);
-
-        finalSpeechResult = findViewById(R.id.text);
 
         droidSpeech.startDroidSpeechRecognition();
     }
@@ -83,7 +83,7 @@ public class MainActivity extends AppCompatActivity implements OnDSListener {
         // Setting the final speech result
         Toast.makeText(this, finalSpeechResult, Toast.LENGTH_SHORT).show();
 
-        if(!lastCommand.equals(finalSpeechResult))
+        if (!lastCommand.equals(finalSpeechResult))
             chamaApiJarvis(finalSpeechResult);
         lastCommand = finalSpeechResult;
 
@@ -108,28 +108,31 @@ public class MainActivity extends AppCompatActivity implements OnDSListener {
     }
 
     // MARK: DroidSpeechPermissionsListener Method
-    private void chamaApiJarvis(final String text){
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://10.15.18.42:3000")
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
-        ConversationServices conversationServices = retrofit.create(ConversationServices.class);
+    private void chamaApiJarvis(final String text) {
+        try{
+            Retrofit retrofit = new Retrofit.Builder()
+                    .baseUrl("http://192.168.1.10:3000")
+                    .addConverterFactory(GsonConverterFactory.create())
+                    .build();
+            ConversationServices conversationServices = retrofit.create(ConversationServices.class);
 
-        Call<RepoConversation> repos = conversationServices.postMessage(text);
-        repos.enqueue(new Callback<RepoConversation>() {
-            @Override
-            public void onResponse(Call<RepoConversation> call, retrofit2.Response<RepoConversation> response) {
+            Call<RepoConversation> repos = conversationServices.postMessage(text);
+            repos.enqueue(new Callback<RepoConversation>() {
+                @Override
+                public void onResponse(Call<RepoConversation> call, retrofit2.Response<RepoConversation> response) {
 
-                Log.d("TESTE", response.body().toString());
-                //System.out.println(response.body().toString());
-                //RepoConversation repoResponse = response.body();
-                //System.out.println(repoResponse.getResponse());
-            }
+                    RepoConversation repoResponse = response.body();
+                    //Toast.makeText(MainActivity.this,repoResponse.getResponse(), Toast.LENGTH_SHORT).show();
+                    Log.d(TAG, repoResponse.getResponse());
+                }
 
-            @Override
-            public void onFailure(Call<RepoConversation> call, Throwable t) {
-                t.printStackTrace();
-            }
-        });
+                @Override
+                public void onFailure(Call<RepoConversation> call, Throwable t) {
+                    t.printStackTrace();
+                }
+            });
+        } catch (Exception e){
+            e.printStackTrace();
+        }
     }
 }
