@@ -16,5 +16,5 @@ import retrofit2.http.Path;
 public interface ConversationServices {
     @FormUrlEncoded
     @POST("/api/conversation")
-    Call<RepoConversation> postMessage(@Field("response") String response);
+    Call<RepoConversation> postMessage(@Field("message") String message);
 }

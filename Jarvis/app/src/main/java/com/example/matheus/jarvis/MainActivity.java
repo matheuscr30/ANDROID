@@ -1,7 +1,10 @@
 package com.example.matheus.jarvis;
 
 import android.content.Context;
+import android.content.DialogInterface;
+import android.content.pm.PackageManager;
 import android.graphics.Color;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -36,10 +39,11 @@ public class MainActivity extends AppCompatActivity implements OnDSListener {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Permission.verifyPermissions(1, this);
 
-        // Setting the layout;[.
+        // Setting the layout;
         setContentView(R.layout.activity_main);
-        config();
+        //config();
     }
 
     public void config(){
@@ -111,7 +115,7 @@ public class MainActivity extends AppCompatActivity implements OnDSListener {
     private void chamaApiJarvis(final String text) {
         try{
             Retrofit retrofit = new Retrofit.Builder()
-                    .baseUrl("http://192.168.1.10:3000")
+                    .baseUrl("http://192.168.0.105:3000")
                     .addConverterFactory(GsonConverterFactory.create())
                     .build();
             ConversationServices conversationServices = retrofit.create(ConversationServices.class);
@@ -120,10 +124,9 @@ public class MainActivity extends AppCompatActivity implements OnDSListener {
             repos.enqueue(new Callback<RepoConversation>() {
                 @Override
                 public void onResponse(Call<RepoConversation> call, retrofit2.Response<RepoConversation> response) {
-
                     RepoConversation repoResponse = response.body();
                     //Toast.makeText(MainActivity.this,repoResponse.getResponse(), Toast.LENGTH_SHORT).show();
-                    Log.d(TAG, repoResponse.getResponse());
+                    Log.d(TAG, repoResponse.getMessage());
                 }
 
                 @Override
@@ -134,5 +137,32 @@ public class MainActivity extends AppCompatActivity implements OnDSListener {
         } catch (Exception e){
             e.printStackTrace();
         }
+    }
+
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        for (int result : grantResults) {
+            if (result == PackageManager.PERMISSION_DENIED) {
+                alertaValidacaoPermissao();
+            } else {
+                config();
+            }
+        }
+    }
+
+    public void alertaValidacaoPermissao() {
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Permissões Negadas");
+        builder.setMessage("Para utilizar esse app é necessário aceitar as permissões");
+        builder.setPositiveButton("Confirmar", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                finish();
+            }
+        });
+
+        AlertDialog dialog = builder.create();
+        dialog.show();
     }
 }
