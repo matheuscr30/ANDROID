@@ -8,15 +8,25 @@ import com.google.gson.annotations.SerializedName;
  */
 
 public class RepoConversation{
-    @SerializedName("message")
-    @Expose
-    private String message;
+    @SerializedName("response")
+    private String response;
 
-    public String getMessage() {
-        return message;
+    @SerializedName("language")
+    private String language;
+
+    public String getResponse() {
+        return response;
     }
 
-    public void setMessage(String message) {
-        this.message = message;
+    public void setResponse(String response) {
+        this.response = response;
+    }
+
+    public String getLanguage() {
+        return language;
+    }
+
+    public void setLanguage(String language) {
+        this.language = language;
     }
 }

@@ -28,18 +28,22 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class MainActivity extends AppCompatActivity implements OnDSListener {
 
-    public final String TAG = "Activity_DroidSpeech";
+    public final String TAG = "c";
     public String lastCommand = "";
 
     private DroidSpeech droidSpeech;
     private TextView finalSpeechResult;
+    private String language = "pt-BR";
+
+    private boolean can;
 
     // MARK: Activity Methods
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Permission.verifyPermissions(1, this);
+        if(Permission.verifyPermissions(1, this))
+            config();
 
         // Setting the layout;
         setContentView(R.layout.activity_main);
@@ -57,6 +61,7 @@ public class MainActivity extends AppCompatActivity implements OnDSListener {
         droidSpeech.setOneStepVerifyRetryTextColor(Color.WHITE);
 
         droidSpeech.startDroidSpeechRecognition();
+        can = true;
     }
 
     // MARK: DroidSpeechListener Methods
@@ -66,10 +71,7 @@ public class MainActivity extends AppCompatActivity implements OnDSListener {
         Log.i(TAG, "Current speech language = " + currentSpeechLanguage);
         Log.i(TAG, "Supported speech languages = " + supportedSpeechLanguages.toString());
 
-        if (supportedSpeechLanguages.contains("pt-BR")) {
-            // Setting the droid speech preferred language as tamil if found
-            droidSpeech.setPreferredLanguage("pt-BR");
-        }
+        droidSpeech.setPreferredLanguage(language);
     }
 
     @Override
@@ -113,9 +115,11 @@ public class MainActivity extends AppCompatActivity implements OnDSListener {
 
     // MARK: DroidSpeechPermissionsListener Method
     private void chamaApiJarvis(final String text) {
+        if(!can) return;
         try{
+            can = false;
             Retrofit retrofit = new Retrofit.Builder()
-                    .baseUrl("http://192.168.0.105:3000")
+                    .baseUrl("http://192.168.43.86:3000")
                     .addConverterFactory(GsonConverterFactory.create())
                     .build();
             ConversationServices conversationServices = retrofit.create(ConversationServices.class);
@@ -125,8 +129,50 @@ public class MainActivity extends AppCompatActivity implements OnDSListener {
                 @Override
                 public void onResponse(Call<RepoConversation> call, retrofit2.Response<RepoConversation> response) {
                     RepoConversation repoResponse = response.body();
-                    //Toast.makeText(MainActivity.this,repoResponse.getResponse(), Toast.LENGTH_SHORT).show();
-                    Log.d(TAG, repoResponse.getMessage());
+                    System.out.println(repoResponse.getResponse());
+
+                    if(repoResponse.getLanguage() != null){
+                        System.out.println(repoResponse.getLanguage());
+                        switch(repoResponse.getLanguage()){
+                            case "alemao":
+                                droidSpeech.setPreferredLanguage("de-DE");
+                                language = "de-DE";
+                                break;
+                            case "arabe":
+                                droidSpeech.setPreferredLanguage("ar-TN");
+                                language = "ar-TN";
+                                break;
+                            case "espanhol":
+                                droidSpeech.setPreferredLanguage("en-EN");
+                                language = "en-EN";
+                                break;
+                            case "frances":
+                                droidSpeech.setPreferredLanguage("fr-FR");
+                                language = "fr-FR";
+                                break;
+                            case "grego":
+                                droidSpeech.setPreferredLanguage("el-GR");
+                                language = "el-GR";
+                                break;
+                            case "ingles":
+                                droidSpeech.setPreferredLanguage("en-US");
+                                language = "en-US";
+                                break;
+                            case "italiano":
+                                droidSpeech.setPreferredLanguage("it-IT");
+                                language = "it-IT";
+                                break;
+                            case "japones":
+                                droidSpeech.setPreferredLanguage("ja-JP");
+                                language = "ja-JP";
+                                break;
+                            case "portugues":
+                                droidSpeech.setPreferredLanguage("pt-BR");
+                                language = "pt-BR";
+                                break;
+                        }
+                    }
+                    can = true;
                 }
 
                 @Override
